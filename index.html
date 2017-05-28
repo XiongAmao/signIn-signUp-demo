@@ -5,44 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <main>
         <div class="container">
             <div class="tabs">
-                <div class="sign-in"></div>
-                <div class="sign-up"></div>
+                <div class="sign-in">登陆</div>
+                <div class="sign-up active">注册</div>
             </div>
             <div class="form">
                 <form action="" id="sign-in">
-                    <label for="username">
-                        <span>username</span>
-                        <span class="error"></span>
+                    <label>
+                        <p>username</p>
+                        <p class="error"></p>
                         <input name="username" type="text">
                     </label>
-                    <label for="">
-                        <span>password</span>
-                        <span class="error"></span>
+                    <label>
+                        <p>password</p>
+                        <p class="error"></p>
                         <input type="password" name="password">
                     </label>
                     <input type="submit" name="submit">
                 </form>
                 <form action="" id="sign-up">
-                    <label for="username">
-                        <span>username</span>
-                        <span class="error"></span>
+                    <label>
+                        <p>username</p>
+                        <p class="error"></p>
                         <input name="username" type="text">
                     </label>
-                    <label for="email">
-                        <span>email</span>
-                        <span class="error"></span>
+                    <label>
+                        <p>email</p>
+                        <p class="error"></p>
                         <input name="email" type="email">
                     </label>
-                    <label for="">
-                        <span>password</span>
-                        <span class="error"></span>
+                    <label>
+                        <p>password</p>
+                        <p class="error"></p>
                         <input type="password" name="password">
                     </label>
                     <input type="submit" name="submit" value="提交">
@@ -55,7 +56,8 @@
             <a href="https://github.com/XiongAmao/signIn-signUp-demo">XiongAmao</a></p>
         <p>
     </footer>
-
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

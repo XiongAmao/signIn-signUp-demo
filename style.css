@@ -18,7 +18,7 @@ main {
     margin: 0 auto;
     width: 430px;
     background: #202A2C;
-    color: #eee; }
+    color: white; }
     main .container .tabs {
       cursor: pointer;
       display: flex;
@@ -41,15 +41,15 @@ main {
         bottom: -2px;
         left: 0;
         height: 2px;
-        background: #eee;
+        background: white;
         z-index: 1;
         transition: 0.8s; }
       main .container .tabs.left .sign-up {
-        color: #777; }
+        color: rgba(255, 255, 255, 0.6); }
       main .container .tabs.left::after {
         transform: translateX(0); }
       main .container .tabs.right .sign-in {
-        color: #777; }
+        color: rgba(255, 255, 255, 0.6); }
       main .container .tabs.right::after {
         transform: translateX(100%); }
       main .container .tabs div {
@@ -59,6 +59,7 @@ main {
         padding: 20px;
         font-size: 20px;
         line-height: 20px;
+        transition: color .4s ease;
         /*&::after {
                     position: absolute;
                     content: '';

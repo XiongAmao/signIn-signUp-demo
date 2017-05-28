@@ -21,9 +21,41 @@ main {
         background: #202A2C;
         color: #eee;
         .tabs {
+            cursor: pointer;
             display: flex;
             justify-content: center;
             align-content: center;
+            border-bottom: 2px solid #777;
+            position: relative;
+            transition: 0.3s ease-out;
+            &::after {
+                position: absolute;
+                content: '';
+                display: block;
+                width: 50%;
+                bottom: -2px;
+                left: 0;
+                height: 2px;
+                background: #eee;
+                z-index: 1;
+                transition: 0.8s ;
+            }
+            &.left {
+                .sign-up{
+                    color:#777;
+                }
+                &::after {
+                    transform: translateX(0);
+                }
+            }
+            &.right {
+                .sign-in{
+                    color:#777;
+                }
+                &::after {
+                    transform: translateX(100%);
+                }
+            }
             div {
                 position: relative;
                 width: 50%;
@@ -31,8 +63,7 @@ main {
                 padding: 20px;
                 font-size: 20px;
                 line-height: 20px;
-                border-bottom: 2px solid #777;
-                &::after {
+                /*&::after {
                     position: absolute;
                     content: '';
                     display: block;
@@ -45,14 +76,14 @@ main {
                 }
                 &.active::after {
                     width: 100%;
-                }
+                } */
             }
-            .sign-in::after {
+            /*    .sign-in::after {
                 right: 0;
             }
             .sign-up::after {
                 left: 0;
-            }
+            }*/
         }
         .form {
             label {

@@ -20,9 +20,38 @@ main {
     background: #202A2C;
     color: #eee; }
     main .container .tabs {
+      cursor: pointer;
       display: flex;
       justify-content: center;
-      align-content: center; }
+      align-content: center;
+      border-bottom: 2px solid #777;
+      position: relative;
+      transition: 0.3s ease-out;
+      /*    .sign-in::after {
+                right: 0;
+            }
+            .sign-up::after {
+                left: 0;
+            }*/ }
+      main .container .tabs::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 50%;
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        background: #eee;
+        z-index: 1;
+        transition: 0.8s; }
+      main .container .tabs.left .sign-up {
+        color: #777; }
+      main .container .tabs.left::after {
+        transform: translateX(0); }
+      main .container .tabs.right .sign-in {
+        color: #777; }
+      main .container .tabs.right::after {
+        transform: translateX(100%); }
       main .container .tabs div {
         position: relative;
         width: 50%;
@@ -30,23 +59,20 @@ main {
         padding: 20px;
         font-size: 20px;
         line-height: 20px;
-        border-bottom: 2px solid #777; }
-        main .container .tabs div::after {
-          position: absolute;
-          content: '';
-          display: block;
-          width: 0;
-          height: 2px;
-          bottom: -1px;
-          background: #ddd;
-          transition: width .3s;
-          margin-top: 21px; }
-        main .container .tabs div.active::after {
-          width: 100%; }
-      main .container .tabs .sign-in::after {
-        right: 0; }
-      main .container .tabs .sign-up::after {
-        left: 0; }
+        /*&::after {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 2px;
+                    bottom: -1px;
+                    background: #ddd;
+                    transition: width .3s;
+                    margin-top: 21px;
+                }
+                &.active::after {
+                    width: 100%;
+                } */ }
     main .container .form label {
       display: block; }
 

@@ -4,7 +4,7 @@ $(function () {
     var $formSignIn = $forms.find('#sign-in')
     var $formSignUp = $forms.find('#sign-up')
     var $signInInput = $('input[data-input="signIn"]')
-
+    var $signUpInput = $('input[data-input="signUp"]')
     $tabs.on('click', 'div', function (e) {
         if (this === document.querySelector('div[data-tab="sign-in"]')) {
             $tabs.addClass('left').removeClass('right')
@@ -36,8 +36,30 @@ $(function () {
         }
         if ($(e.currentTarget).val() === "") {
             $(e.currentTarget).removeClass('active')
+                .siblings('p').removeClass('active')
         } else {
             $(e.currentTarget).addClass('active')
+                .siblings('p').addClass('active')
+        }
+    })
+    $signUpInput.on('input change', (e) => {
+        if ($signInInput.eq(0).val() !== "" && $signInInput.eq(1).val() !== "") {
+            $formSignIn
+                .find('button[data-button="sign-up"]')
+                .prop('disabled', false)
+                .removeClass("disabled")
+        } else {
+            $formSignIn
+                .find('button[data-button="sign-up"]')
+                .prop("disabled", true)
+                .addClass("disabled")
+        }
+        if ($(e.currentTarget).val() === "") {
+            $(e.currentTarget).removeClass('active')
+                .siblings('p').removeClass('active')
+        } else {
+            $(e.currentTarget).addClass('active')
+                .siblings('p').addClass('active')
         }
     })
 })

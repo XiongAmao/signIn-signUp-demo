@@ -19,9 +19,14 @@ main {
     flex-direction: column;
     padding: 40px;
     margin: 0 auto;
-    width: 430px;
+    max-width: 430px;
     background: #202A2C;
     color: white; }
+    @media (max-width: 376px) {
+      main .container {
+        padding: 40px 20px; } }
+    main .container .header {
+      height: 60px; }
     main .container .tabs {
       /* tabs */
       cursor: pointer;
@@ -58,7 +63,7 @@ main {
         padding: 20px;
         font-size: 20px;
         line-height: 20px;
-        transition: color .2s ease; }
+        transition: color .3s ease; }
     main .container .forms {
       /* forms */
       display: flex;
@@ -84,7 +89,11 @@ main {
           border: none;
           color: white;
           border-left: 2px solid #323B40;
-          font-size: 20px; }
+          font-size: 20px;
+          /*                  &#sign-in-password:focus,
+                    &#sign-up-password {
+                        border-left: #23A7F1 2px solid;
+                    }   */ }
           main .container .forms .form-sign-in input:focus, main .container .forms .form-sign-in input.active,
           main .container .forms .form-sign-up input:focus,
           main .container .forms .form-sign-up input.active {
@@ -95,18 +104,21 @@ main {
           main .container .forms .form-sign-up input.error,
           main .container .forms .form-sign-up input.error:focus {
             border-left: #FE4452 2px solid; }
-          main .container .forms .form-sign-in input#sign-in-password:focus, main .container .forms .form-sign-in input#sign-up-password,
-          main .container .forms .form-sign-up input#sign-in-password:focus,
-          main .container .forms .form-sign-up input#sign-up-password {
-            border-left: #23A7F1 2px solid; }
         main .container .forms .form-sign-in p,
         main .container .forms .form-sign-up p {
           text-transform: uppercase;
           font-family: monospace;
-          margin: 10px 0; }
+          margin: 10px 0;
+          transition: 0.3s ease-in-out; }
+          main .container .forms .form-sign-in p.active,
+          main .container .forms .form-sign-up p.active {
+            color: #fff; }
         main .container .forms .form-sign-in .form-submit,
         main .container .forms .form-sign-up .form-submit {
-          margin: 50px 0; }
+          margin: 50px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
           main .container .forms .form-sign-in .form-submit button,
           main .container .forms .form-sign-up .form-submit button {
             cursor: pointer;
@@ -128,12 +140,13 @@ main {
             main .container .forms .form-sign-in .form-submit button:disabled,
             main .container .forms .form-sign-up .form-submit button:disabled {
               background: #A8B1B6;
-              cursor: not-allowed; }
+              cursor: no-drop; }
           main .container .forms .form-sign-in .form-submit a,
           main .container .forms .form-sign-up .form-submit a {
-            float: right;
-            padding-top: 5%;
             color: #A8B1B6; }
+          main .container .forms .form-sign-in .form-submit p,
+          main .container .forms .form-sign-up .form-submit p {
+            width: 50%; }
       main .container .forms .form-sign-in,
       main .container .forms .form-sign-up {
         visibility: hidden;

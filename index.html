@@ -12,25 +12,28 @@
 <body>
     <main>
         <div class="container">
+            <div class="header">
+                <h1>TESTV</h1>
+            </div>
             <div class="tabs left">
-                <div data-tab="sign-in" class="sign-in">登入</div>
+                <div data-tab="sign-in" class="sign-in">登录</div>
                 <div data-tab="sign-up" class="sign-up">注册</div>
             </div>
 
             <div class="forms">
                 <form class="form-sign-in active" action="" id="sign-in" method="post">
                     <label>
-                        <p>username</p>
+                        <p>用户名</p>
                         <span class="error"></span>
                         <input name="username" type="text" data-input="signIn" id="sign-in-username">
                     </label>
                     <label>
-                        <p>password</p>
+                        <p>密码</p>
                         <span class="error"></span>
                         <input type="password" name="password" data-input="signIn" id="sign-in-password">
                     </label>
                     <div class="form-submit">
-                        <button class="disabled" data-button="sign-in" disabled type="submit" form="sign-in" value="sign in">sign in</button>
+                        <button class="disabled" data-button="sign-in" disabled type="submit" form="sign-in" value="sign in"> 立即登录 </button>
                         <a href="">忘记密码?</a>
                     </div>
 
@@ -38,27 +41,26 @@
 
                 <form class="form-sign-up" action="" id="sign-up">
                     <label>
-                        <p>username</p>
+                        <p>用户名</p>
                         <span class="error"></span>
-                        <input name="username" type="text">
+                        <input name="username" data-input="signUp" type="text">
                     </label>
 
                     <label>
-                        <p>email</p>
+                        <p>邮箱</p>
                         <span class="error"></span>
-                        <input name="email" type="email">
+                        <input name="email" data-input="signUp" type="email">
                     </label>
 
                     <label>
-                        <p>password</p>
+                        <p>密码</p>
                         <span class="error"></span>
-                        <input type="password" name="password">
+                        <input type="password" data-input="signUp" name="password">
                     </label>                   
                      <div class="form-submit">
-                        <button class="disabled" type="submit" form="sign-up" value="sign up">Create</button>
-                        <a href="">Forgot Password</a>
+                        <button class="disabled" type="submit" data-button="sign-up" form="sign-up" value="sign up">立即注册</button>
+                        <p>注册即表示同意 <a href="">《用户协议》</a></p>
                     </div>
-                    
                 </form>
             </div>
         </div>

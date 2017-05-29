@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box; }
 
+body {
+  background: #A8B1B6; }
+
 main {
   display: flex;
   justify-content: center;
@@ -27,12 +30,7 @@ main {
       border-bottom: 2px solid #777;
       position: relative;
       transition: 0.3s ease-out;
-      /*    .sign-in::after {
-                right: 0;
-            }
-            .sign-up::after {
-                left: 0;
-            }*/ }
+      margin: 40px 0; }
       main .container .tabs::after {
         position: absolute;
         content: '';
@@ -59,28 +57,37 @@ main {
         padding: 20px;
         font-size: 20px;
         line-height: 20px;
-        transition: color .4s ease;
-        /*&::after {
-                    position: absolute;
-                    content: '';
-                    display: block;
-                    width: 0;
-                    height: 2px;
-                    bottom: -1px;
-                    background: #ddd;
-                    transition: width .3s;
-                    margin-top: 21px;
-                }
-                &.active::after {
-                    width: 100%;
-                } */ }
-    main .container .form label {
-      display: block; }
+        transition: color .4s ease; }
+    main .container .forms {
+      display: flex; }
+      main .container .forms form {
+        flex-shrink: 0;
+        width: 100%; }
+      main .container .forms label {
+        display: block; }
+        main .container .forms label input {
+          width: 100%; }
+      main .container .forms .form-sign-in,
+      main .container .forms .form-sign-up {
+        visibility: hidden;
+        transition: .4s ease-in-out;
+        opacity: 0; }
+      main .container .forms .form-sign-in.active,
+      main .container .forms .form-sign-up.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0); }
+      main .container .forms .form-sign-in {
+        transform: translateX(10px); }
+      main .container .forms .form-sign-up {
+        transform: translateX(calc(-100% - 10px)); }
+        main .container .forms .form-sign-up.active {
+          transform: translateX(-100%); }
 
 .code-info {
-  font-family: YaHei Consolas Hybrid, Consolas, Tahoma, sans-serif, monospace;
+  font-family: monospace, sans-serif;
   font-size: 12px;
-  color: #999;
+  color: #fff;
   text-align: right;
   right: 5px;
   bottom: 10px;
@@ -88,15 +95,16 @@ main {
   .code-info p {
     margin: 0; }
   .code-info a {
-    color: #999;
+    cursor: pointer;
+    color: #fff;
     text-decoration: none; }
     .code-info a:visited {
-      color: #999; }
+      color: #fff; }
     .code-info a:hover {
       color: #777; }
-  .code-info .netguru {
-    color: #00d664; }
-    .code-info .netguru:hover {
-      color: #00A34C; }
-    .code-info .netguru:visited {
-      color: #00A34C; }
+  .code-info .code-info-design {
+    color: #777; }
+    .code-info .code-info-design:visited {
+      color: #777; }
+    .code-info .code-info-design:hover {
+      color: #333; }

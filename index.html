@@ -16,8 +16,9 @@
                 <div data-tab="sign-in" class="sign-in">登陆</div>
                 <div data-tab="sign-up" class="sign-up">注册</div>
             </div>
-            <div class="form">
-                <form action="" id="sign-in">
+
+            <div class="forms">
+                <form class="form-sign-in active" action="" id="sign-in" method="post">
                     <label>
                         <p>username</p>
                         <span class="error"></span>
@@ -28,31 +29,38 @@
                         <span class="error"></span>
                         <input type="password" name="password">
                     </label>
-                    <input type="submit" name="submit">
+                    <div class="form-submit">
+                        <button type="submit" form="sign-in" value="sign in">sign in</button>
+                        <a href="">Forgot Password</a>
+                    </div>
+
                 </form>
-                <form action="" id="sign-up">
+
+                <form class="form-sign-up" action="" id="sign-up">
                     <label>
                         <p>username</p>
                         <span class="error"></span>
                         <input name="username" type="text">
                     </label>
+
                     <label>
                         <p>email</p>
                         <span class="error"></span>
                         <input name="email" type="email">
                     </label>
+
                     <label>
                         <p>password</p>
                         <span class="error"></span>
                         <input type="password" name="password">
                     </label>
-                    <input type="submit" name="submit" value="提交">
+                    <button type="submit" form="sign-up" value="sign up">Create</button>
                 </form>
             </div>
         </div>
     </main>
     <footer class="code-info">
-        <p>Design By <a class="netguru" href="https://dribbble.com/shots/2405114-Zipline-Sign-in-Sign-Up">macheru</a> Code By
+        <p>Design By <a class="code-info-design" href="https://dribbble.com/shots/2405114-Zipline-Sign-in-Sign-Up">macheru</a>            Code By
             <a href="https://github.com/XiongAmao/signIn-signUp-demo">XiongAmao</a></p>
         <p>
     </footer>

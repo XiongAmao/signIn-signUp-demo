@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #A8B1B6;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -28,6 +32,7 @@ main {
             border-bottom: 2px solid #777;
             position: relative;
             transition: 0.3s ease-out;
+            margin: 40px 0;
             &::after {
                 position: absolute;
                 content: '';
@@ -38,19 +43,19 @@ main {
                 height: 2px;
                 background: rgba(255, 255, 255, 1);
                 z-index: 1;
-                transition: 0.8s ;
+                transition: 0.8s;
             }
             &.left {
-                .sign-up{
-                    color:rgba(255, 255, 255, 0.6);
+                .sign-up {
+                    color: rgba(255, 255, 255, 0.6);
                 }
                 &::after {
                     transform: translateX(0);
                 }
             }
             &.right {
-                .sign-in{
-                    color:rgba(255, 255, 255, .6);
+                .sign-in {
+                    color: rgba(255, 255, 255, .6);
                 }
                 &::after {
                     transform: translateX(100%);
@@ -64,40 +69,52 @@ main {
                 font-size: 20px;
                 line-height: 20px;
                 transition: color .4s ease;
-                /*&::after {
-                    position: absolute;
-                    content: '';
-                    display: block;
-                    width: 0;
-                    height: 2px;
-                    bottom: -1px;
-                    background: #ddd;
-                    transition: width .3s;
-                    margin-top: 21px;
-                }
-                &.active::after {
-                    width: 100%;
-                } */
             }
-            /*    .sign-in::after {
-                right: 0;
-            }
-            .sign-up::after {
-                left: 0;
-            }*/
         }
-        .form {
+        .forms{
+            display: flex;
+            
+            form{
+                flex-shrink: 0;
+                width:100%;
+            }
             label {
                 display: block;
+                input{
+                    width:100%;
+                }
+            }
+            .form-sign-in,
+            .form-sign-up {
+                visibility: hidden;
+                transition: .4s ease-in-out;
+                opacity: 0;
+            }
+            .form-sign-in,
+            .form-sign-up {
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translate(0)
+                }
+            }
+            .form-sign-in {
+                transform: translateX(10px)
+            }
+            .form-sign-up {
+                transform: translateX(calc(-100% - 10px));
+                &.active{
+                    transform: translateX(-100%)
+                }
             }
         }
     }
 }
 
 .code-info {
-    font-family: YaHei Consolas Hybrid, Consolas, Tahoma, sans-serif, monospace;
+    font-family: monospace, sans-serif;
     font-size: 12px;
-    color: #999;
+    color: #fff;
     text-align: right; // position: relative;
     right: 5px;
     bottom: 10px;
@@ -106,22 +123,23 @@ main {
         margin: 0;
     }
     a {
-        color: #999;
+        cursor: pointer;
+        color: #fff;
         text-decoration: none;
         &:visited {
-            color: #999;
+            color: #fff;
         }
         &:hover {
             color: #777;
         }
     }
-    .netguru {
-        color: #00d664;
-        &:hover {
-            color: #00A34C;
-        }
+    .code-info-design {
+        color: #777;
         &:visited {
-            color: #00A34C;
+            color: #777
+        }
+        &:hover {
+            color: #333
         }
     }
 }

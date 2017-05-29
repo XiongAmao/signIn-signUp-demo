@@ -91,6 +91,10 @@ main {
             outline: none;
             border-left: #61C7B1 2px solid;
             transition: .5s; }
+          main .container .forms .form-sign-in input.error, main .container .forms .form-sign-in input.error:focus,
+          main .container .forms .form-sign-up input.error,
+          main .container .forms .form-sign-up input.error:focus {
+            border-left: #FE4452 2px solid; }
           main .container .forms .form-sign-in input#sign-in-password:focus, main .container .forms .form-sign-in input#sign-up-password,
           main .container .forms .form-sign-up input#sign-in-password:focus,
           main .container .forms .form-sign-up input#sign-up-password {

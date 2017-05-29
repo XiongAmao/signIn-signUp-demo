@@ -5,6 +5,7 @@ $(function () {
     var $formSignUp = $forms.find('#sign-up')
     var $signInInput = $('input[data-input="signIn"]')
     var $signUpInput = $('input[data-input="signUp"]')
+
     $tabs.on('click', 'div', function (e) {
         if (this === document.querySelector('div[data-tab="sign-in"]')) {
             $tabs.addClass('left').removeClass('right')
@@ -43,13 +44,13 @@ $(function () {
         }
     })
     $signUpInput.on('input change', (e) => {
-        if ($signInInput.eq(0).val() !== "" && $signInInput.eq(1).val() !== "") {
-            $formSignIn
+        if ($signUpInput.eq(0).val() !== "" && $signUpInput.eq(1).val() !== "" && $signUpInput.eq(2).val() !== "" ) {
+            $formSignUp
                 .find('button[data-button="sign-up"]')
                 .prop('disabled', false)
                 .removeClass("disabled")
         } else {
-            $formSignIn
+            $formSignUp
                 .find('button[data-button="sign-up"]')
                 .prop("disabled", true)
                 .addClass("disabled")

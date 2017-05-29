@@ -23,21 +23,21 @@ $(function () {
     })
 
     $signInInput.on('input change', (e) => {
-        if($signInInput.eq(0).val() !== "" && $signInInput.eq(1).val() !==""){
+        if ($signInInput.eq(0).val() !== "" && $signInInput.eq(1).val() !== "") {
             $formSignIn
                 .find('button[data-button="sign-in"]')
                 .prop('disabled', false)
                 .removeClass("disabled")
-        }else{
+        } else {
             $formSignIn
                 .find('button[data-button="sign-in"]')
                 .prop("disabled", true)
                 .addClass("disabled")
         }
-        if($signInInput.eq(0).val() !== ""){
-            $signInInput.eq(0).addClass('active')
-        }else{
-            $signInInput.eq(0).removeClass('active')
+        if ($(e.currentTarget).val() === "") {
+            $(e.currentTarget).removeClass('active')
+        } else {
+            $(e.currentTarget).addClass('active')
         }
     })
 })

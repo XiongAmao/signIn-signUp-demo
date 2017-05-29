@@ -23,6 +23,7 @@ main {
     background: #202A2C;
     color: white; }
     main .container .tabs {
+      /* tabs */
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -43,11 +44,11 @@ main {
         z-index: 1;
         transition: 0.8s; }
       main .container .tabs.left .sign-up {
-        color: rgba(255, 255, 255, 0.6); }
+        color: rgba(255, 255, 255, 0.4); }
       main .container .tabs.left::after {
         transform: translateX(0); }
       main .container .tabs.right .sign-in {
-        color: rgba(255, 255, 255, 0.6); }
+        color: rgba(255, 255, 255, 0.4); }
       main .container .tabs.right::after {
         transform: translateX(100%); }
       main .container .tabs div {
@@ -57,16 +58,78 @@ main {
         padding: 20px;
         font-size: 20px;
         line-height: 20px;
-        transition: color .4s ease; }
+        transition: color .2s ease; }
     main .container .forms {
-      display: flex; }
-      main .container .forms form {
+      /* forms */
+      display: flex;
+      color: rgba(255, 255, 255, 0.4);
+      /* tabs-form-animation */ }
+      main .container .forms .form-sign-in,
+      main .container .forms .form-sign-up {
         flex-shrink: 0;
-        width: 100%; }
-      main .container .forms label {
-        display: block; }
-        main .container .forms label input {
-          width: 100%; }
+        width: 100%;
+        font-size: 18px; }
+        main .container .forms .form-sign-in label,
+        main .container .forms .form-sign-up label {
+          display: block;
+          margin: 20px 0;
+          letter-spacing: 2px; }
+        main .container .forms .form-sign-in input,
+        main .container .forms .form-sign-up input {
+          position: relative;
+          width: 100%;
+          padding: 16px;
+          background: #323B40;
+          box-shadow: none;
+          border: none;
+          color: white;
+          border-left: 2px solid #323B40;
+          font-size: 20px; }
+          main .container .forms .form-sign-in input:focus, main .container .forms .form-sign-in input.active,
+          main .container .forms .form-sign-up input:focus,
+          main .container .forms .form-sign-up input.active {
+            outline: none;
+            border-left: #61C7B1 2px solid;
+            transition: .5s; }
+          main .container .forms .form-sign-in input#sign-in-password:focus, main .container .forms .form-sign-in input#sign-up-password,
+          main .container .forms .form-sign-up input#sign-in-password:focus,
+          main .container .forms .form-sign-up input#sign-up-password {
+            border-left: #23A7F1 2px solid; }
+        main .container .forms .form-sign-in p,
+        main .container .forms .form-sign-up p {
+          text-transform: uppercase;
+          font-family: monospace;
+          margin: 10px 0; }
+        main .container .forms .form-sign-in .form-submit,
+        main .container .forms .form-sign-up .form-submit {
+          margin: 50px 0; }
+          main .container .forms .form-sign-in .form-submit button,
+          main .container .forms .form-sign-up .form-submit button {
+            cursor: pointer;
+            padding: 18px 30px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            background: #23A7F1;
+            border: none;
+            transition: .3s ease-in-out; }
+            @media (max-width: 375px) {
+              main .container .forms .form-sign-in .form-submit button,
+              main .container .forms .form-sign-up .form-submit button {
+                padding: 18px 6px; } }
+            main .container .forms .form-sign-in .form-submit button:hover,
+            main .container .forms .form-sign-up .form-submit button:hover {
+              background: #0E8ED5; }
+            main .container .forms .form-sign-in .form-submit button:disabled,
+            main .container .forms .form-sign-up .form-submit button:disabled {
+              background: #A8B1B6;
+              cursor: not-allowed; }
+          main .container .forms .form-sign-in .form-submit a,
+          main .container .forms .form-sign-up .form-submit a {
+            float: right;
+            padding-top: 5%;
+            color: #A8B1B6; }
       main .container .forms .form-sign-in,
       main .container .forms .form-sign-up {
         visibility: hidden;

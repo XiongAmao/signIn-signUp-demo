@@ -1,3 +1,4 @@
+$grey: rgba(255, 255, 255, .4);
 * {
     padding: 0;
     margin: 0;
@@ -25,6 +26,7 @@ main {
         background: #202A2C;
         color: rgba(255, 255, 255, 1);
         .tabs {
+            /* tabs */
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -47,7 +49,7 @@ main {
             }
             &.left {
                 .sign-up {
-                    color: rgba(255, 255, 255, 0.6);
+                    color: $grey;
                 }
                 &::after {
                     transform: translateX(0);
@@ -55,7 +57,7 @@ main {
             }
             &.right {
                 .sign-in {
-                    color: rgba(255, 255, 255, .6);
+                    color: $grey;
                 }
                 &::after {
                     transform: translateX(100%);
@@ -68,22 +70,80 @@ main {
                 padding: 20px;
                 font-size: 20px;
                 line-height: 20px;
-                transition: color .4s ease;
+                transition: color .2s ease;
             }
         }
-        .forms{
+        .forms {
+            /* forms */
             display: flex;
-            
-            form{
+            color: $grey;
+            .form-sign-in,
+            .form-sign-up {
                 flex-shrink: 0;
-                width:100%;
-            }
-            label {
-                display: block;
-                input{
-                    width:100%;
+                width: 100%;
+                font-size: 18px;
+                label {
+                    display: block;
+                    margin: 20px 0;
+                    letter-spacing: 2px;
+                }
+                input {
+                    position: relative;
+                    width: 100%;
+                    padding: 16px;
+                    background: #323B40;
+                    box-shadow: none;
+                    border: none;
+                    color: rgba(255, 255, 255, 1);
+                    border-left: 2px solid #323B40;
+                    font-size: 20px;
+                    &:focus,&.active {
+                        outline: none;
+                        border-left: #61C7B1 2px solid;
+                        transition: .5s;
+                    }
+                    &#sign-in-password:focus,
+                    &#sign-up-password {
+                        border-left: #23A7F1 2px solid;
+                    }
+                }
+                p {
+                    text-transform: uppercase;
+                    font-family: monospace;
+                    margin: 10px 0;
+                }
+                .form-submit {
+                    margin: 50px 0;
+                    button {
+                        cursor: pointer;
+                        padding: 18px 30px;
+                        font-size: 18px;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        color: #fff;
+                        background: #23A7F1;
+                        border: none;
+                        transition: .3s ease-in-out;
+                        @media (max-width:375px){
+                            padding:18px 6px;
+                        }
+                        &:hover {
+                            background: #0E8ED5;
+                        }
+                        &:disabled {
+                            background: #A8B1B6;
+                            cursor: not-allowed;
+
+                        }
+                    }
+                    a {
+                        float: right;
+                        padding-top: 5%;
+                        color: #A8B1B6;
+                    }
                 }
             }
+            /* tabs-form-animation */
             .form-sign-in,
             .form-sign-up {
                 visibility: hidden;
@@ -103,7 +163,7 @@ main {
             }
             .form-sign-up {
                 transform: translateX(calc(-100% - 10px));
-                &.active{
+                &.active {
                     transform: translateX(-100%)
                 }
             }

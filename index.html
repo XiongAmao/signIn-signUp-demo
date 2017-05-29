@@ -22,16 +22,16 @@
                     <label>
                         <p>username</p>
                         <span class="error"></span>
-                        <input name="username" type="text">
+                        <input name="username" type="text" data-input="signIn" id="sign-in-username">
                     </label>
                     <label>
                         <p>password</p>
                         <span class="error"></span>
-                        <input type="password" name="password">
+                        <input type="password" name="password" data-input="signIn" id="sign-in-password">
                     </label>
                     <div class="form-submit">
-                        <button type="submit" form="sign-in" value="sign in">sign in</button>
-                        <a href="">Forgot Password</a>
+                        <button class="disabled" data-button="sign-in" disabled type="submit" form="sign-in" value="sign in">sign in</button>
+                        <a href="">忘记密码?</a>
                     </div>
 
                 </form>
@@ -53,8 +53,12 @@
                         <p>password</p>
                         <span class="error"></span>
                         <input type="password" name="password">
-                    </label>
-                    <button type="submit" form="sign-up" value="sign up">Create</button>
+                    </label>                   
+                     <div class="form-submit">
+                        <button class="disabled" type="submit" form="sign-up" value="sign up">Create</button>
+                        <a href="">Forgot Password</a>
+                    </div>
+                    
                 </form>
             </div>
         </div>

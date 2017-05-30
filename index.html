@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    <div class="dimmer"></div>
+    <div class="dimmer active">
+        <div class="login-info">
+            <p class="introduction">已登录！！</p>
+            <p class='login-info-username'>您的用户名为：<span></span></p>
+            <p class='login-info-email'>您的邮箱为：<span></span></p>
+            <div><button>登出</button></div>
+        </div>
+    </div>
     <main>
 
         <div class="container">
@@ -23,7 +30,7 @@
             </div>
 
             <div class="forms">
-                <form  class="form-sign-in active" action="" id="sign-in" method="post">
+                <form class="form-sign-in active" action="" id="sign-in" method="post">
 
                     <label>
                         <p>用户名<span class=""></span></p>
@@ -63,10 +70,7 @@
                     </div>
                 </form>
             </div>
-            <div class="login-info">
-                <p></p>
-                <button></button>
-            </div>
+
         </div>
     </main>
     <footer class="code-info">

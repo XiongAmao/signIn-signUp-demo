@@ -18,18 +18,65 @@ body {
 
 .dimmer {
   overflow: visible;
-  opacity: 1;
+  opacity: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.45);
-  z-index: -1;
-  position: absolute; }
+  z-index: 5;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: .6s ease-in-out; }
+  .dimmer.active {
+    visibility: visible;
+    opacity: 1; }
+  .dimmer .login-info {
+    max-height: 400px;
+    min-width: 300px;
+    max-width: 320px;
+    background: #fff;
+    padding: 40px 20px;
+    font-size: 30px;
+    margin-top: -140px;
+    border-top: 10px #61C7B1 solid;
+    border-radius: 4px;
+    color: black;
+    box-shadow: 0 4px 30px 6px #333; }
+    .dimmer .login-info p {
+      margin: 20px 0; }
+      .dimmer .login-info p span {
+        color: #FE4452;
+        font-size: 16px; }
+    .dimmer .login-info .login-info-username,
+    .dimmer .login-info .login-info-email {
+      font-size: 20px; }
+    .dimmer .login-info div {
+      margin: 60px auto;
+      text-align: center; }
+      .dimmer .login-info div button {
+        cursor: pointer;
+        padding: 10px 30px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #fff;
+        background: #23A7F1;
+        border: none;
+        border-radius: 6px;
+        transition: .3s ease-in-out; }
+        .dimmer .login-info div button:hover {
+          background: #0E8ED5; }
 
 main {
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 100%; }
+  width: 100%;
+  transition: .6s ease; }
+  main.dimmer {
+    filter: blur(3px); }
   main .container {
     display: flex;
     flex-wrap: wrap;
@@ -107,18 +154,16 @@ main {
           display: block;
           margin: 20px 0;
           letter-spacing: 2px; }
-          main .container .forms .form-sign-in label p,
-          main .container .forms .form-sign-up label p {
+          main .container .forms .form-sign-in label p span,
+          main .container .forms .form-sign-up label p span {
             padding-left: 5%;
-            font-size: 14px; }
-            main .container .forms .form-sign-in label p span,
-            main .container .forms .form-sign-up label p span {
-              transition: .5s ease;
-              color: #FE4452;
-              opacity: 0; }
-              main .container .forms .form-sign-in label p span.error,
-              main .container .forms .form-sign-up label p span.error {
-                opacity: 1; }
+            font-size: 14px;
+            transition: .5s ease;
+            color: #FE4452;
+            opacity: 0; }
+            main .container .forms .form-sign-in label p span.error,
+            main .container .forms .form-sign-up label p span.error {
+              opacity: 1; }
         main .container .forms .form-sign-in input,
         main .container .forms .form-sign-up input {
           position: relative;

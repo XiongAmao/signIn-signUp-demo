@@ -89,7 +89,7 @@ main {
     align-content: center;
     width: 100%;
     transition: .6s ease;    
-    &.dimmer{
+    &.blur{
         filter: blur(3px);
     }
     .container {

@@ -5,8 +5,11 @@ $(function () {
         $formSignUp = $forms.find('#sign-up'),
         $signInInput = $('input[data-input="signIn"]'),
         $signUpInput = $('input[data-input="signUp"]'),
-        $signUpButton = $formSignUp.find('button[data-button="sign-up"]'),
-        $signInButton = $formSignIn.find('button[data-button="sign-in"]')
+        $signUpButton = $('button[data-button="sign-up"]'),
+        $signInButton = $('button[data-button="sign-in"]'),
+        $loginInfo = $(".login-info"),
+        $loginInfoUsername = $('.login-info-username'),
+        $loginInfoEmail = $('.login-info-email')
 
     let leanCloudErrorCodeMsg = {
         124: "网络异常，请刷新页面",
@@ -33,7 +36,10 @@ $(function () {
         appKey: APP_KEY
     });
     var user = new AV.User();
-
+    
+    getCurrentUser()
+    
+    // submit event bind
     $formSignUp.on('submit', function (e) {
         e.preventDefault()
         let $username = $(this)[0].username.value,
@@ -41,7 +47,17 @@ $(function () {
             $password = $(this)[0].password.value;
 
         leanCloudSignUp($username, $email, $password)
+    })
+    $formSignIn.on('submit', function (e) {
+        e.preventDefault()
+        let $username = $(this)[0].username.value,
+            $password = $(this)[0].password.value;
 
+        leanCloudSignIn($username, $password)
+    })
+    $('.js-logout').on('click',()=>{
+        AV.User.logOut();
+        window.location.reload()
     })
 
 
@@ -110,20 +126,46 @@ $(function () {
         }
     })
 
+
+    // signIn & signUp 
+    function leanCloudSignIn(username, password) {
+        let whichForm = "sign-in"
+        AV.User.logIn(username, password).then(function (loginedUser) {
+            getCurrentUser()
+        }, function (error) {
+            setError(error.code, whichForm)
+        });
+    }
     function leanCloudSignUp(username, email, password) {
         let whichForm = "sign-up"
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email)
         user.signUp().then(function (loginedUser) {
-            console.log(loginedUser);
+            getCurrentUser()
         }, (function (error) {
-            console.log(typeof (error), typeof (error.code))
             setError(error.code, whichForm)
         }));
-
     }
 
+    function getCurrentUser(){
+        var currentUser = AV.User.current();
+        console.log(currentUser)
+        if(currentUser){
+            $loginInfo.parent('.dimmer').addClass('active')
+            $loginInfoUsername.find('span').text(currentUser.attributes.username)
+            $loginInfoEmail.find('span').text(currentUser.attributes.email)
+            $('main').addClass('blur')
+        }else{
+            $loginInfo
+                .parent('.dimmer').removeClass('active')
+                .find('span').text('')
+            $('main').removeClass('blur')
+        }
+    }
+
+
+    // error msg modules
     function setError(code, whichForm) {
         let errorInputs = (whichForm === "sign-in") ? $signInInput : $signUpInput
         setErrorStyle(errorInputs)
@@ -148,7 +190,7 @@ $(function () {
         } else if (/201|210|218/.test(code)) {
             // password error
             $span = errorInputs.filter('input[type="password"]').parent().find('span')
-        }
+        } else if(//)
         $span.text(msg).addClass('error')
     }
     function resetErrorMsg() {

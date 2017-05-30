@@ -75,7 +75,7 @@ main {
   align-content: center;
   width: 100%;
   transition: .6s ease; }
-  main.dimmer {
+  main.blur {
     filter: blur(3px); }
   main .container {
     display: flex;

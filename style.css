@@ -107,11 +107,18 @@ main {
           display: block;
           margin: 20px 0;
           letter-spacing: 2px; }
-          main .container .forms .form-sign-in label p .error,
-          main .container .forms .form-sign-up label p .error {
-            color: #FE4452;
+          main .container .forms .form-sign-in label p,
+          main .container .forms .form-sign-up label p {
             padding-left: 5%;
             font-size: 14px; }
+            main .container .forms .form-sign-in label p span,
+            main .container .forms .form-sign-up label p span {
+              transition: .5s ease;
+              color: #FE4452;
+              opacity: 0; }
+              main .container .forms .form-sign-in label p span.error,
+              main .container .forms .form-sign-up label p span.error {
+                opacity: 1; }
         main .container .forms .form-sign-in input,
         main .container .forms .form-sign-up input {
           position: relative;

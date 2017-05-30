@@ -122,10 +122,17 @@ main {
                     display: block;
                     margin: 20px 0;
                     letter-spacing: 2px;
-                    p .error{
-                        color:#FE4452;
-                        padding-left:5%;
+                    p {
+                        padding-left: 5%;
                         font-size: 14px;
+                        span {
+                            transition: .5s ease;
+                            color: #FE4452;
+                            opacity: 0;
+                            &.error {
+                                opacity: 1;
+                            }
+                        }
                     }
                 }
                 input {

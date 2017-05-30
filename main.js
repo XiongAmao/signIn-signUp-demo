@@ -65,6 +65,8 @@ $(function () {
     // sign in | sign up input animation 
     $signInInput.on('input change', (e) => {
         $signInInput.removeClass("error")
+        resetErrorMsg()
+
         if ($signInInput.eq(0).val() !== "" && $signInInput.eq(1).val() !== "") {
             $formSignIn
                 .find('button[data-button="sign-in"]')
@@ -86,6 +88,8 @@ $(function () {
     })
     $signUpInput.on('input change', (e) => {
         $signUpInput.removeClass("error")
+        resetErrorMsg()
+
         if ($signUpInput.eq(0).val() !== "" && $signUpInput.eq(1).val() !== "" && $signUpInput.eq(2).val() !== "") {
             $formSignUp
                 .find('button[data-button="sign-up"]')
@@ -114,29 +118,41 @@ $(function () {
         user.signUp().then(function (loginedUser) {
             console.log(loginedUser);
         }, (function (error) {
+            console.log(typeof (error), typeof (error.code))
             setError(error.code, whichForm)
         }));
 
     }
 
     function setError(code, whichForm) {
-        let msg = leanCloudErrorCodeMsg[code]
-        let errorInput  = (whichForm ==="sign-in") ? $signInInput : $signUpInput
-        setErrorStyle($signUpInput)
-        if (code == "125" || code == "203" || code == "216") {
-            // email error
-        } else if (code == "126" || code == "200" || code == "202" || code == "211" || code == "217") {
-            // username error
-        } else if (code == "201" || code == "210" || code == "218") {
-            // password error
-        }
+        let errorInputs = (whichForm === "sign-in") ? $signInInput : $signUpInput
+        setErrorStyle(errorInputs)
+        setErrorMsg(code, errorInputs)
+
     }
     function setErrorStyle(whichInput) {
         whichInput.addClass("error")
         whichInput.addClass("error")
     }
-    function setErrorMsg() {
 
+    function setErrorMsg(code, errorInputs) {
+        let msg = leanCloudErrorCodeMsg[code]
+        let $span
+        if (/125|203|216/.test(code)) {
+            // email error
+            $span = errorInputs.filter('input[type="email"]').parent().find('span')
+        } else if (/126|200|202|211|217/.test(code)) {
+            // username error
+            $span = errorInputs.filter('input[type="text"]').parent().find('span')
+
+        } else if (/201|210|218/.test(code)) {
+            // password error
+            $span = errorInputs.filter('input[type="password"]').parent().find('span')
+        }
+        $span.text(msg).addClass('error')
+    }
+    function resetErrorMsg() {
+        $forms.find('p span').removeClass("error")
     }
 
 

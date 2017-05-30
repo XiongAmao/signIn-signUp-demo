@@ -122,6 +122,11 @@ main {
                     display: block;
                     margin: 20px 0;
                     letter-spacing: 2px;
+                    p .error{
+                        color:#FE4452;
+                        padding-left:5%;
+                        font-size: 14px;
+                    }
                 }
                 input {
                     position: relative;
@@ -133,11 +138,12 @@ main {
                     color: rgba(255, 255, 255, 1);
                     border-left: 2px solid #323B40;
                     font-size: 20px;
+                    transition: .5s;
                     &:focus,
                     &.active {
                         outline: none;
                         border-left: #61C7B1 2px solid;
-                        transition: .5s;
+                        background: #202A2C;
                     }
                     &.error,
                     &.error:focus {

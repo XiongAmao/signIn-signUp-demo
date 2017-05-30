@@ -12,7 +12,7 @@
 <body>
     <div class="dimmer"></div>
     <main>
-        
+
         <div class="container">
             <div class="header">
                 <h1>zipline</h1>
@@ -24,14 +24,15 @@
 
             <div class="forms">
                 <form class="form-sign-in active" action="" id="sign-in" method="post">
+
                     <label>
-                        <p>用户名</p>
-                        <span class="error"></span>
+                        <p>用户名<span class="error">或密码错误,请重新输入</span></p>
+                        
                         <input name="username" type="text" data-input="signIn" id="sign-in-username">
                     </label>
+
                     <label>
-                        <p>密码</p>
-                        <span class="error"></span>
+                        <p>密码<span class="error"></span></p>
                         <input type="password" name="password" data-input="signIn" id="sign-in-password">
                     </label>
                     <div class="form-submit">
@@ -41,29 +42,30 @@
 
                 </form>
 
-                <form class="form-sign-up" action="" id="sign-up">
+                <form class="form-sign-up" action="" id="sign-up" method="post">
                     <label>
-                        <p>用户名</p>
-                        <span class="error"></span>
+                        <p>用户名 <span class="error"></span></p>
                         <input name="username" data-input="signUp" type="text">
                     </label>
 
                     <label>
-                        <p>邮箱</p>
-                        <span class="error"></span>
+                        <p>邮箱 <span class="error"></span></p>
                         <input name="email" data-input="signUp" type="email">
                     </label>
 
                     <label>
-                        <p>密码</p>
-                        <span class="error"></span>
+                        <p>密码 <span class="error"></span></p>
                         <input type="password" data-input="signUp" name="password">
-                    </label>                   
-                     <div class="form-submit">
+                    </label>
+                    <div class="form-submit">
                         <button class="disabled" type="submit" data-button="sign-up" disabled form="sign-up" value="sign up">立即注册</button>
                         <p>注册即表示同意 <a href="">《用户协议》</a></p>
                     </div>
                 </form>
+            </div>
+            <div class="login-info">
+                <p></p>
+                <button></button>
             </div>
         </div>
     </main>
@@ -73,7 +75,10 @@
         <p>
     </footer>
     <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <!-- 存储服务 -->
+    <script src="//cdn1.lncld.net/static/js/2.4.0/av-min.js"></script>
     <script src="./main.js"></script>
+
 </body>
 
 </html>

@@ -107,6 +107,11 @@ main {
           display: block;
           margin: 20px 0;
           letter-spacing: 2px; }
+          main .container .forms .form-sign-in label p .error,
+          main .container .forms .form-sign-up label p .error {
+            color: #FE4452;
+            padding-left: 5%;
+            font-size: 14px; }
         main .container .forms .form-sign-in input,
         main .container .forms .form-sign-up input {
           position: relative;
@@ -118,6 +123,7 @@ main {
           color: white;
           border-left: 2px solid #323B40;
           font-size: 20px;
+          transition: .5s;
           /*                  &#sign-in-password:focus,
                     &#sign-up-password {
                         border-left: #23A7F1 2px solid;
@@ -127,7 +133,7 @@ main {
           main .container .forms .form-sign-up input.active {
             outline: none;
             border-left: #61C7B1 2px solid;
-            transition: .5s; }
+            background: #202A2C; }
           main .container .forms .form-sign-in input.error, main .container .forms .form-sign-in input.error:focus,
           main .container .forms .form-sign-up input.error,
           main .container .forms .form-sign-up input.error:focus {

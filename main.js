@@ -24,7 +24,7 @@ $(function () {
         216: "未验证的邮箱地址",
         217: "无效用户名，不允许为空",
         218: "无效的密码，不允许为空",
-        219: "登录失败次数超过限制，请稍候再试，或者通过忘记密码重设密码",
+        219: "登录失败次数超过限制，请稍候尝试登录",
         502: "服务器维护"
     }
 
@@ -36,9 +36,10 @@ $(function () {
         appKey: APP_KEY
     });
     var user = new AV.User();
-    
+
+    // 页面先获取一次用户信息
     getCurrentUser()
-    
+
     // submit event bind
     $formSignUp.on('submit', function (e) {
         e.preventDefault()
@@ -55,7 +56,8 @@ $(function () {
 
         leanCloudSignIn($username, $password)
     })
-    $('.js-logout').on('click',()=>{
+
+    $('.js-logout').on('click', () => {
         AV.User.logOut();
         window.location.reload()
     })
@@ -131,7 +133,7 @@ $(function () {
     function leanCloudSignIn(username, password) {
         let whichForm = "sign-in"
         AV.User.logIn(username, password).then(function (loginedUser) {
-            getCurrentUser()
+            getCurrentUser(whichForm)
         }, function (error) {
             setError(error.code, whichForm)
         });
@@ -142,21 +144,28 @@ $(function () {
         user.setPassword(password);
         user.setEmail(email)
         user.signUp().then(function (loginedUser) {
-            getCurrentUser()
+            getCurrentUser(whichForm)
         }, (function (error) {
             setError(error.code, whichForm)
         }));
     }
 
-    function getCurrentUser(){
+    function getCurrentUser(whichForm) {
         var currentUser = AV.User.current();
-        console.log(currentUser)
-        if(currentUser){
+        // console.log(currentUser)
+
+        if (currentUser) {
             $loginInfo.parent('.dimmer').addClass('active')
             $loginInfoUsername.find('span').text(currentUser.attributes.username)
             $loginInfoEmail.find('span').text(currentUser.attributes.email)
             $('main').addClass('blur')
-        }else{
+            if (whichForm == "sign-up") {
+                $loginInfo.find('.introduction').text('注册成功！')
+            }else if(whichForm == "sign-in"){
+                $loginInfo.find('.introduction').text('登录成功！')
+            }
+
+        } else {
             $loginInfo
                 .parent('.dimmer').removeClass('active')
                 .find('span').text('')
@@ -190,7 +199,10 @@ $(function () {
         } else if (/201|210|218/.test(code)) {
             // password error
             $span = errorInputs.filter('input[type="password"]').parent().find('span')
-        } else if(//)
+        } else if (/124|219|502/.test(code)) {
+            // another error
+            $span = errorInputs.filter('input[type="text"]').parent().find('span')
+        }
         $span.text(msg).addClass('error')
     }
     function resetErrorMsg() {
